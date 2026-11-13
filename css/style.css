@@ -395,7 +395,7 @@ kbd {
 .course.is-dim { opacity: .28; }
 a.course { text-decoration: none; color: inherit; }
 a.course:hover { border-color: var(--warm); transform: translateY(-2px); }
-a.course .course__title::after { content: " a0↗"; color: var(--warm); }
+a.course .course__title::after { content: "↗"; margin-left: .3em; color: var(--warm); }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; font: 400 12px var(--mono); color: var(--muted); margin: 26px 0 0; }
 .st { width: 3px; height: 14px; border-radius: 3px; background: var(--muted); opacity: .45; display: inline-block; margin-left: 12px; }
 .st:first-child { margin-left: 0; }
