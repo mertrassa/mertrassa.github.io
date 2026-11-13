@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mert Rassa · Computer Science and Statistics at UofT</title>
+<meta name="description" content="Mert Rassa studies Computer Science and Statistics at the University of Toronto and builds machine learning, NLP and everyday tools. Projects you can run in the browser, coursework and aerial photography.">
+<meta property="og:title" content="Mert Rassa · Computer Science and Statistics at UofT">
+<meta property="og:description" content="Projects you can run in the browser, coursework and aerial photography.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mertrassa.github.io/">
+<meta property="og:image" content="https://mertrassa.github.io/assets/photos/marina-city.jpg">
+<meta name="theme-color" content="#f4f1ea">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f2a44'/%3E%3Cpath d='M7 23V9l9 9 9-9v14' fill='none' stroke='%23ff9466' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script>
+  // Set the theme before first paint so the page never flashes the wrong one.
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
+  })();
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="top">
+  <a class="nav__brand" href="#top" aria-label="Mert Rassa, back to top">
+    <span class="nav__mark" aria-hidden="true">MR</span>
+    <span class="nav__name">Mert Rassa</span>
+  </a>
+  <nav class="nav__links" aria-label="Sections">
+    <a href="#work">Work</a>
+    <a href="#lab">Lab</a>
+    <a href="#courses">Courses</a>
+    <a href="#about">About</a>
+    <a href="#photos">Photos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="theme" id="themeToggle" type="button" aria-label="Switch between light and dark theme">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+  </button>
+</header>
+
+<main id="main">
+
+<!-- ───────────── Hero ───────────── -->
+<section class="hero">
+  <div class="hero__text">
+    <p class="eyebrow"><span class="dot" aria-hidden="true"></span><span>Toronto, Canada · <span id="clock">43.66° N, 79.39° W</span></span></p>
+    <h1>Mert Rassa</h1>
+    <p class="hero__lede">
+      I study <em>computer science</em> and <em>statistics</em> at the University of Toronto, and I build
+      machine learning models, NLP pipelines and small tools that fix everyday problems.
+    </p>
+    <div class="hero__cta">
+      <a class="btn btn--solid" href="#work">See the work</a>
+      <a class="btn" href="#lab">Run a project in your browser</a>
+    </div>
+    <dl class="facts">
+      <div><dt>Degree</dt><dd>Honours bachelor's, class of 2028</dd></div>
+      <div><dt>Programs</dt><dd>Specialist in CS · Specialist in Statistics</dd></div>
+      <div><dt>Focus</dt><dd>AI, computer vision, quantitative finance</dd></div>
+    </dl>
+  </div>
+
+  <div class="hero__deck">
+    <div class="deck" id="deck" role="button" tabindex="0" aria-label="Aerial photographs by Mert. Press to see the next one."></div>
+    <p class="deck__caption"><span id="deckCaption">2024.06.15</span><span class="deck__hint">click the stack · shot on a drone</span></p>
+  </div>
+</section>
+
+<section class="now" aria-label="This term">
+  <span class="now__label">Fall 2026, in class</span>
+  <ul class="now__list">
+    <li>Operating Systems</li><li>Algorithm Design</li><li>Computer Networks</li><li>Theoretical Probability</li>
+    <li>Methods of Data Analysis</li><li>Theory of Statistical Practice</li><li>Differential Equations</li>
+  </ul>
+</section>
+
+<!-- ───────────── Work ───────────── -->
+<section class="section" id="work">
+  <header class="section__head">
+    <p class="section__no">01</p>
+    <h2>Selected work</h2>
+    <p class="section__sub">Seven projects, from a web app for UofT students to a chip design for Tiny Tapeout. Three of them run right here, further down the page.</p>
+  </header>
+
+  <div class="chips" role="group" aria-label="Filter projects" id="projectFilters">
+    <button class="chip is-on" type="button" data-filter="all" aria-pressed="true">All</button>
+    <button class="chip" type="button" data-filter="ml" aria-pressed="false">ML &amp; NLP</button>
+    <button class="chip" type="button" data-filter="web" aria-pressed="false">Web</button>
+    <button class="chip" type="button" data-filter="hw" aria-pressed="false">Hardware &amp; systems</button>
+    <button class="chip" type="button" data-filter="sw" aria-pressed="false">Software design</button>
+  </div>
+
+  <div class="projects" id="projects">
+
+    <article class="card card--wide" data-tags="web" id="p-free-rooms">
+      <a class="card__media" href="https://mertrassa.github.io/uoft-free-rooms/" aria-label="Open Free Rooms">
+        <img src="assets/projects/free-rooms.jpg" alt="Free Rooms showing the classrooms that are free at UofT right now" width="1200" height="750" loading="lazy">
+      </a>
+      <div class="card__body">
+        <p class="card__meta">Oct 2026 to now · open source</p>
+        <h3>Free Rooms</h3>
+        <p>A web app that shows UofT St. George students which classrooms are empty right now. It covers 516 rooms and more than 6,800 weekly class meetings, merged from three university data sources.</p>
+        <ul class="card__points">
+          <li>A room that might be booked is never shown as free.</li>
+          <li>Python data pipelines, a React front end, 50+ unit tests and CI/CD, built by directing AI coding agents.</li>
+        </ul>
+        <p class="tags"><span>Python</span><span>TypeScript</span><span>React</span><span>GitHub Actions</span></p>
+        <p class="card__links">
+          <a href="https://mertrassa.github.io/uoft-free-rooms/">Open the live app</a>
+          <a href="https://github.com/mertrassa/uoft-free-rooms">Source</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="card card--tall" data-tags="hw" id="p-ffmeta">
+      <a class="card__media" href="https://mertrassa.github.io/tt-ffmeta/" aria-label="Open the ffmeta layout viewer">
+        <img src="assets/projects/ffmeta-layout.jpg" alt="Routed chip layout of the ffmeta design" width="1200" height="832" loading="lazy">
+      </a>
+      <div class="card__body">
+        <p class="card__meta">Nov 2026 · Tiny Tapeout, sky130</p>
+        <h3>ffmeta</h3>
+        <p>A one-tile chip that measures how fast eight kinds of flip-flop recover from metastability, using a time base the chip calibrates by itself.</p>
+        <ul class="card__points">
+          <li>Passes hardening, DRC, LVS and gate-level tests in the Tiny Tapeout flow.</li>
+          <li>In simulation the analysis recovers injected time constants of 45, 60 and 75 ps as 45.9, 60.6 and 73.5 ps. Nothing is measured on silicon yet.</li>
+        </ul>
+        <p class="tags"><span>Verilog</span><span>Python</span><span>LibreLane</span></p>
+        <p class="card__links">
+          <a href="#lab" data-lab="meta">Run the measurement</a>
+          <a href="https://github.com/mertrassa/tt-ffmeta">Source</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="card" data-tags="ml" id="p-nmt">
+      <div class="card__media card__media--art" aria-hidden="true">
+        <svg class="art-nmt" viewBox="0 0 400 200" role="presentation">
+          <g class="art-nmt__lines">
+            <path d="M50 66 C50 100 73 100 73 134"/><path d="M164 66 C164 100 136 100 136 134"/>
+            <path d="M219 66 C219 100 192 100 192 134"/><path d="M247 66 C247 100 224 100 224 134"/>
+            <path class="x" d="M349 66 C349 100 271 100 271 134"/><path class="x" d="M286 66 C286 100 326 100 326 134"/>
+          </g>
+          <g class="art-nmt__src">
+            <rect x="14" y="40" width="72" height="26" rx="5"/><text x="50" y="58">Monsieur</text>
+            <rect x="92" y="40" width="26" height="26" rx="5"/><text x="105" y="58">le</text>
+            <rect x="124" y="40" width="80" height="26" rx="5"/><text x="164" y="58">Président</text>
+            <rect x="210" y="40" width="18" height="26" rx="5"/><text x="219" y="58">,</text>
+            <rect x="234" y="40" width="26" height="26" rx="5"/><text x="247" y="58">je</text>
+            <rect x="266" y="40" width="41" height="26" rx="5"/><text x="286" y="58">vous</text>
+            <rect x="313" y="40" width="72" height="26" rx="5"/><text x="349" y="58">remercie</text>
+          </g>
+          <g class="art-nmt__tgt">
+            <rect x="57" y="134" width="33" height="26" rx="5"/><text x="73" y="152">Mr.</text>
+            <rect x="104" y="134" width="65" height="26" rx="5"/><text x="136" y="152">Speaker</text>
+            <rect x="183" y="134" width="18" height="26" rx="5"/><text x="192" y="152">,</text>
+            <rect x="215" y="134" width="18" height="26" rx="5"/><text x="224" y="152">I</text>
+            <rect x="247" y="134" width="49" height="26" rx="5"/><text x="271" y="152">thank</text>
+            <rect x="310" y="134" width="33" height="26" rx="5"/><text x="326" y="152">you</text>
+          </g>
+        </svg>
+      </div>
+      <div class="card__body">
+        <p class="card__meta">Feb to Mar 2026 · CSC401</p>
+        <h3>Neural machine translation</h3>
+        <p>A Transformer encoder-decoder written from scratch in PyTorch and trained on GPUs to translate French into English on the Canadian Hansards.</p>
+        <ul class="card__points">
+          <li>Multi-head attention, pre- and post-layer norm, causal and padding masks.</li>
+          <li>Greedy and beam-search decoding, scored with BLEU against a fine-tuned BART and ChatGPT.</li>
+        </ul>
+        <p class="tags"><span>Python</span><span>PyTorch</span></p>
+        <p class="card__links"><span class="muted">Course assignment, code kept private</span></p>
+      </div>
+    </article>
+
+    <article class="card" data-tags="ml" id="p-sentiment">
+      <div class="card__media card__media--art" aria-hidden="true">
+        <div class="art-bars">
+          <p class="art-bars__title">3-class sentiment accuracy</p>
+          <div class="art-bars__row"><span>MLP on MPNet embeddings</span><b style="--v:84">84%</b></div>
+          <div class="art-bars__row art-bars__row--dim"><span>Bag-of-words features</span><b style="--v:69">69%</b></div>
+        </div>
+      </div>
+      <div class="card__body">
+        <p class="card__meta">Jan to Feb 2026 · CSC401</p>
+        <h3>Financial sentiment analysis</h3>
+        <p>An NLP pipeline that classifies the sentiment of 1989 Wall Street Journal articles and uses it to predict 5-day market returns.</p>
+        <ul class="card__points">
+          <li>spaCy preprocessing with count, TF-IDF and MPNet embedding features.</li>
+          <li>Naive Bayes and MLP classifiers compared with 5-fold cross-validation and t-tests; the best one also beat zero-shot Llama 3.1.</li>
+        </ul>
+        <p class="tags"><span>Python</span><span>spaCy</span><span>scikit-learn</span></p>
+        <p class="card__links"><span class="muted">Course assignment, code kept private</span></p>
+      </div>
+    </article>
+
+    <article class="card" data-tags="sw" id="p-harmonify">
+      <div class="card__media card__media--art" aria-hidden="true">
+        <svg class="art-graph" viewBox="0 0 400 200" role="presentation">
+          <g class="art-graph__edges">
+            <path d="M90 50 L310 32"/><path d="M90 50 L310 74"/><path d="M90 50 L310 116"/>
+            <path class="hot" d="M90 100 L310 74"/><path class="hot" d="M90 100 L310 116"/><path class="hot" d="M90 100 L310 158"/>
+            <path d="M90 150 L310 116"/><path d="M90 150 L310 158"/><path d="M90 150 L310 32"/>
+          </g>
+          <g class="art-graph__users"><circle cx="90" cy="50" r="13"/><circle class="you" cx="90" cy="100" r="15"/><circle cx="90" cy="150" r="13"/></g>
+          <g class="art-graph__songs"><rect x="302" y="24" width="16" height="16" rx="4"/><rect x="302" y="66" width="16" height="16" rx="4"/><rect x="302" y="108" width="16" height="16" rx="4"/><rect x="302" y="150" width="16" height="16" rx="4"/></g>
+          <text x="90" y="104" class="art-graph__you">you</text>
+          <text x="52" y="186" class="art-graph__lab">listeners</text><text x="290" y="186" class="art-graph__lab">songs</text>
+        </svg>
+      </div>
+      <div class="card__body">
+        <p class="card__meta">Winter 2025 · CSC111, team of three</p>
+        <h3>Harmonify</h3>
+        <p>A music recommender built on a graph of listeners and songs. Pick five songs and it finds the listener whose taste is closest to yours, then suggests what they play.</p>
+        <p class="tags"><span>Python</span><span>Tkinter</span><span>NetworkX</span></p>
+        <p class="card__links">
+          <a href="#lab" data-lab="harmonify">Find your match</a>
+          <a href="https://github.com/mertrassa/Harmonify-CSC111">Source</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="card" data-tags="hw" id="p-columns">
+      <div class="card__media card__media--art card__media--pixel" aria-hidden="true">
+        <canvas id="gemPoster" width="400" height="200"></canvas>
+      </div>
+      <div class="card__body">
+        <p class="card__meta">Nov to Dec 2025 · CSC258, with Berke Basak</p>
+        <h3>Columns</h3>
+        <p>A complete falling-gems arcade game in MIPS assembly: registers, the stack and the matching logic handled by hand, graphics through memory-mapped I/O and music through syscalls.</p>
+        <p class="tags"><span>MIPS assembly</span></p>
+        <p class="card__links">
+          <a href="#lab" data-lab="gems">Play a browser port</a>
+          <a href="https://github.com/mertrassa/Columns-CSC258">Source</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="card" data-tags="sw" id="p-indishisive">
+      <div class="card__media card__media--art" aria-hidden="true">
+        <div class="art-dish">
+          <p><span>in the kitchen</span><b>eggs</b><b>tomato</b><b>onion</b><b>feta</b></p>
+          <p><span>avoid</span><b class="no">peanuts</b></p>
+          <p><span>cuisine</span><b class="pick">any</b></p>
+          <p class="art-dish__out">what should I cook?</p>
+        </div>
+      </div>
+      <div class="card__body">
+        <p class="card__meta">Oct to Dec 2025 · CSC207, team project</p>
+        <h3>InDishisive</h3>
+        <p>A desktop recipe assistant for people who can't decide what to cook. It filters TheMealDB recipes against what is in your kitchen, your dietary restrictions and the cuisine you want.</p>
+        <p class="tags"><span>Java</span><span>Swing</span><span>Clean Architecture</span><span>JUnit</span></p>
+        <p class="card__links"><a href="https://github.com/mertrassa/InDishisive-CSC207">Source</a></p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ───────────── Lab ───────────── -->
+<section class="section section--lab" id="lab">
+  <header class="section__head">
+    <p class="section__no">02</p>
+    <h2>The lab</h2>
+    <p class="section__sub">Three of the projects above, ported to JavaScript so you can run them without installing anything. Same data and same rules as the originals.</p>
+  </header>
+
+  <div class="tabs" role="tablist" aria-label="Demos">
+    <button role="tab" id="tab-harmonify" aria-controls="panel-harmonify" aria-selected="true" class="tab is-on" type="button"><b>Harmonify</b><span>find your music match</span></button>
+    <button role="tab" id="tab-meta" aria-controls="panel-meta" aria-selected="false" class="tab" type="button" tabindex="-1"><b>ffmeta</b><span>measure a flip-flop</span></button>
+    <button role="tab" id="tab-gems" aria-controls="panel-gems" aria-selected="false" class="tab" type="button" tabindex="-1"><b>Columns</b><span>play the game</span></button>
+  </div>
+
+  <!-- Harmonify -->
+  <div class="panel" role="tabpanel" id="panel-harmonify" aria-labelledby="tab-harmonify">
+    <div class="hz">
+      <div class="hz__pick">
+        <h3>1. Pick five songs you like</h3>
+        <div class="hz__search">
+          <input type="search" id="hzSearch" placeholder="Search 200 songs by title, artist or genre" aria-label="Search songs" autocomplete="off">
+          <button type="button" class="btn btn--small" id="hzRandom">Surprise me</button>
+        </div>
+        <ul class="hz__songs" id="hzSongs" aria-label="Songs"></ul>
+        <div class="hz__chosen" id="hzChosen" aria-live="polite"></div>
+        <h3>2. Say what you prefer</h3>
+        <div class="hz__prefs">
+          <label>Favourite genre
+            <select id="hzGenre"></select>
+          </label>
+          <fieldset>
+            <legend>Song length</legend>
+            <label><input type="radio" name="hzDur" value="short"> Short</label>
+            <label><input type="radio" name="hzDur" value="medium" checked> Medium</label>
+            <label><input type="radio" name="hzDur" value="long"> Long</label>
+          </fieldset>
+        </div>
+        <button type="button" class="btn btn--solid" id="hzGo" disabled>Pick 5 songs to continue</button>
+      </div>
+      <div class="hz__result" id="hzResult" aria-live="polite">
+        <div class="empty">
+          <p class="empty__big">Your match shows up here.</p>
+          <p>You are added to a graph of 200 listeners and 200 songs. Each listener is scored against you:</p>
+          <pre>score = 3 × songs in common
+      + 2 × those in your favourite genre
+      + 1 × those of your preferred length</pre>
+          <p>The highest score wins, and their other songs become your recommendations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ffmeta -->
+  <div class="panel" role="tabpanel" id="panel-meta" aria-labelledby="tab-meta" hidden>
+    <div class="mt">
+      <div class="mt__side">
+        <h3>What the chip does</h3>
+        <p>A flip-flop that samples a signal at the wrong instant hesitates before settling. The chance it is still undecided after a wait <i>t</i> falls as e<sup>−t/τ</sup>. The chip counts those late decisions at 256 delay settings; the slope of the counts gives τ.</p>
+        <p>This is the project's Monte Carlo model. Choose the flip-flop's true values, run the measurement and see how well the fit recovers them.</p>
+        <div class="mt__controls">
+          <label>True τ <output id="mtTauOut">60 ps</output>
+            <input type="range" id="mtTau" min="30" max="100" step="1" value="60">
+          </label>
+          <label>Window T<sub>w</sub> <output id="mtTwOut">30 ps</output>
+            <input type="range" id="mtTw" min="10" max="60" step="1" value="30">
+          </label>
+          <label>Longest gate per point <output id="mtGateOut">1 s</output>
+            <input type="range" id="mtGate" min="0" max="3" step="1" value="2">
+          </label>
+        </div>
+        <button type="button" class="btn btn--solid" id="mtRun">Run the measurement</button>
+      </div>
+      <div class="mt__main">
+        <figure class="mt__plot">
+          <svg id="mtPlot" viewBox="0 0 640 380" role="img" aria-label="Late-transition probability against sampling delay, with the fitted line"></svg>
+          <figcaption>Each dot is one delay setting. Left of the knee the flip-flop has not switched yet, so every captured edge counts as late. The fit uses the tail to the right.</figcaption>
+        </figure>
+        <div class="mt__read" id="mtRead" aria-live="polite"></div>
+        <div class="mt__mtbf">
+          <h3>What that means for a synchroniser</h3>
+          <p>With a 100 MHz clock and 1 MHz of asynchronous data, how long between failures if the next stage waits this long?</p>
+          <label>Settling time allowed <output id="mtSettleOut">2.0 ns</output>
+            <input type="range" id="mtSettle" min="0.5" max="4" step="0.1" value="2">
+          </label>
+          <p class="mt__big" id="mtMtbf">—</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gems -->
+  <div class="panel" role="tabpanel" id="panel-gems" aria-labelledby="tab-gems" hidden>
+    <div class="gm">
+      <div class="gm__screen">
+        <canvas id="gemCanvas" width="256" height="256" tabindex="0" aria-label="Falling gems game. Click to start."></canvas>
+        <div class="gm__pad" aria-label="Touch controls">
+          <button type="button" data-key="a" aria-label="Move left">◀</button>
+          <button type="button" data-key="w" aria-label="Reorder gems">⟳</button>
+          <button type="button" data-key="d" aria-label="Move right">▶</button>
+          <button type="button" data-key="s" aria-label="Move down">▼</button>
+          <button type="button" data-key=" " aria-label="Drop" class="wide">Drop</button>
+        </div>
+      </div>
+      <div class="gm__side">
+        <h3>A port of the assembly original</h3>
+        <p>The original draws on a 32 × 32 bitmap display through memory-mapped I/O. This port keeps the same board, colours, ghost marker and matching rules: line up three or more of a colour in a row, a column or a diagonal, and chains keep going while gems fall.</p>
+        <div class="gm__stats">
+          <div><span>Gems cleared</span><b id="gmScore">0</b></div>
+          <div><span>Best chain</span><b id="gmChain">0</b></div>
+        </div>
+        <fieldset class="gm__diff">
+          <legend>Speed</legend>
+          <label><input type="radio" name="gmDiff" value="1" checked> Easy</label>
+          <label><input type="radio" name="gmDiff" value="2"> Medium</label>
+          <label><input type="radio" name="gmDiff" value="3"> Hard</label>
+        </fieldset>
+        <table class="keys">
+          <tr><th><kbd>A</kbd> <kbd>D</kbd></th><td>move left and right</td></tr>
+          <tr><th><kbd>W</kbd></th><td>change the order of the gems</td></tr>
+          <tr><th><kbd>S</kbd></th><td>move down one row</td></tr>
+          <tr><th><kbd>Space</kbd></th><td>drop</td></tr>
+          <tr><th><kbd>P</kbd> <kbd>R</kbd></th><td>pause, restart</td></tr>
+        </table>
+        <p class="muted">Arrow keys work too. Click the game first so it receives your keys.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── Courses ───────────── -->
+<section class="section" id="courses">
+  <header class="section__head">
+    <p class="section__no">03</p>
+    <h2>Coursework</h2>
+    <p class="section__sub">Every course on my University of Toronto record so far, plus the ones I am enrolled in for the winter.</p>
+  </header>
+
+  <div class="course-tools">
+    <div class="chips" role="group" aria-label="Filter courses by area" id="courseFilters"></div>
+    <div class="seg" role="group" aria-label="Arrange courses">
+      <button type="button" class="is-on" data-view="term" aria-pressed="true">By year</button>
+      <button type="button" data-view="area" aria-pressed="false">By area</button>
+    </div>
+  </div>
+  <p class="course-count" id="courseCount" aria-live="polite"></p>
+  <div class="courses" id="courseGrid"></div>
+  <p class="legend"><span class="st st--done"></span>completed <span class="st st--now"></span>in progress <span class="st st--next"></span>enrolled for winter <span class="legend__proj">↗ led to a project above</span></p>
+</section>
+
+<!-- ───────────── About ───────────── -->
+<section class="section" id="about">
+  <header class="section__head">
+    <p class="section__no">04</p>
+    <h2>Outside the classroom</h2>
+  </header>
+
+  <div class="about">
+    <ol class="timeline">
+      <li>
+        <p class="timeline__when">Oct 2024 to now · Toronto</p>
+        <h3>Co-founder and co-president, Turkic Union of Research and Academic Network</h3>
+        <p>A recognised student group at UofT. We launched an online lecture series that runs from functional analysis and algebraic topology to archaeology, and co-organised the Ontario Turkish Film Festival and its gala, where I led social media and on-site logistics.</p>
+      </li>
+      <li>
+        <p class="timeline__when">Jun to Jul 2025 · Istanbul</p>
+        <h3>Information technologies intern, Hepsiburada</h3>
+        <p>On the Listing team of a large e-commerce platform (NASDAQ: HEPS). I studied its micro-frontend architecture and release process, and joined daily stand-ups and sprint reviews.</p>
+      </li>
+      <li>
+        <p class="timeline__when">Awards</p>
+        <h3>International Scholar Award, University of Toronto</h3>
+        <p>A $100,000 scholarship. Also the winner of the Fields Institute pumpkin carving contest, in 2025 and again in 2026.</p>
+      </li>
+    </ol>
+
+    <aside class="skills">
+      <h3>Tools I reach for</h3>
+      <dl>
+        <dt>Languages</dt>
+        <dd>Python, Java, C, SQL, MATLAB, Lean, Verilog, MIPS assembly</dd>
+        <dt>ML and data</dt>
+        <dd>PyTorch, scikit-learn, NumPy, pandas, spaCy</dd>
+        <dt>Building things</dt>
+        <dd>Git, GitHub Actions, Java Swing, Tkinter, LaTeX</dd>
+        <dt>I speak</dt>
+        <dd>Turkish (native), French (DALF C1), English (IELTS C1)</dd>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<!-- ───────────── Photos ───────────── -->
+<section class="section" id="photos">
+  <header class="section__head">
+    <p class="section__no">05</p>
+    <h2>From above</h2>
+    <p class="section__sub">Aerial photographs I took with a drone between 2022 and 2024. They also live on <a href="https://vsco.co/mertrassa/gallery">VSCO</a>.</p>
+  </header>
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<!-- ───────────── Contact ───────────── -->
+<section class="section contact" id="contact">
+  <p class="section__no">06</p>
+  <h2>Say hello</h2>
+  <p class="contact__lede">Have a question, an idea or something to build? Email is the fastest way to reach me.</p>
+  <a class="contact__mail" href="mailto:m.rassa@mail.utoronto.ca">m.rassa@mail.utoronto.ca</a>
+  <ul class="contact__links">
+    <li><a href="https://github.com/mertrassa">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/mertrassa/">LinkedIn</a></li>
+    <li><a href="https://vsco.co/mertrassa/gallery">VSCO</a></li>
+  </ul>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p>© <span id="year">2026</span> Mert Rassa. Plain HTML, CSS and JavaScript, no build step.</p>
+  <p><a href="https://github.com/mertrassa/mertrassa.github.io">Source for this site</a> · <a href="#top">Back to top</a></p>
+</footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Photograph">
+  <button class="lightbox__close" type="button" aria-label="Close">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Previous photograph">‹</button>
+  <figure>
+    <img id="lightboxImg" alt="">
+    <figcaption id="lightboxCap"></figcaption>
+  </figure>
+  <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Next photograph">›</button>
+</dialog>
+
+<script src="js/main.js" defer></script>
+<script src="js/harmonify.js" defer></script>
+<script src="js/meta.js" defer></script>
+<script src="js/gems.js" defer></script>
+</body>
+</html>
